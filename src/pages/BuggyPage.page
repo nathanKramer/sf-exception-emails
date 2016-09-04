@@ -1,0 +1,22 @@
+<apex:page
+  controller="BuggyPageController"
+  showHeader="true"
+  sidebar="true">
+
+  <apex:form>
+    <apex:pageBlock title="Buggy McBugface">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec maximus lorem sed mi tincidunt feugiat. Nam ut lacus sem. Aenean dignissim congue neque, ac mattis tortor mattis ac. In vel nisl lorem. Aliquam posuere lacus non magna imperdiet elementum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc iaculis quam at volutpat pulvinar. Nullam eu justo mi. Integer porta enim felis, nec condimentum tellus lobortis a. Nunc vel tellus sit amet dui varius eleifend eget quis diam. Praesent in arcu laoreet, iaculis nisl non, vulputate dolor. Proin vulputate vitae lorem id consectetur. Morbi vel tellus convallis, tristique leo et, blandit purus. Curabitur cursus est non sapien pretium porttitor. Suspendisse quis facilisis urna. Nullam id molestie libero.
+      </p>
+
+      <p>
+        Nunc ut luctus elit. Cras vel lectus sodales, venenatis quam id, tempor arcu. Nunc sed turpis et leo placerat molestie. Maecenas et convallis massa, vel imperdiet arcu. Donec at eros et enim aliquam rutrum vitae in purus. Integer at ante ultricies, pellentesque est ac, tristique mi. Pellentesque dignissim elit nec fermentum lacinia. Vestibulum fermentum ligula et nisi fermentum placerat. Quisque rutrum pellentesque urna, ut ullamcorper felis varius nec. Sed egestas interdum turpis, non varius ante cursus ac. Fusce tincidunt mi eros, in placerat nisi lobortis id. Vestibulum mi metus, imperdiet quis dictum vitae, tempor a nisl. Suspendisse tristique nec ex id pellentesque. Sed tincidunt ante in dolor tempor consequat. Integer commodo lectus sit amet lobortis tempor.
+      </p>
+      <apex:pageBlockButtons>
+        <apex:commandButton value="Fake Nullpointer" action="{!throwFakeNullpointer}" />
+        <apex:commandButton value="Fake Callout Exception" action="{!throwFakeCalloutException}" />
+        <apex:commandButton value="Fake List Index Error" action="{!throwFakeListIndexError}" />
+      </apex:pageBlockButtons>
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>

@@ -1,25 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
-    <types>
-        <members>CodeLogEmailService</members>
-        <members>ExceptionEmail</members>
-        <members>ExceptionEmailService</members>
-        <members>ExceptionEmailServiceTest</members>
-        <name>ApexClass</name>
-    </types>
-    <types>
-        <members>Exception__c</members>
-        <members>Occurrence__c</members>
-        <name>CustomObject</name>
-    </types>
-    <types>
-        <members>Exception__c.tab</members>
-        <name>CustomTab</name>
-    </types>
-    <types>
-        <members>Exception__c-Exception Layout</members>
-        <members>Occurrence__c-Occurrence Layout</members>
-        <name>Layout</name>
-    </types>
-    <version>34.0</version>
+	<types>
+		<members>CodeLogEmailService</members>
+		<members>ExceptionEmail</members>
+		<members>ExceptionEmailService</members>
+		<members>ExceptionEmailServiceTest</members>
+		<members>BuggyPageController</members>
+		<members>CheekySlackIntegration</members>
+		<name>ApexClass</name>
+	</types>
+	<types>
+		<members>Exception__c</members>
+		<members>Occurrence__c</members>
+		<name>CustomObject</name>
+	</types>
+	<types>
+		<members>Exception__c.tab</members>
+		<name>CustomTab</name>
+	</types>
+	<types>
+		<members>Exception__c-Exception Layout</members>
+		<members>Occurrence__c-Occurrence Layout</members>
+		<name>Layout</name>
+	</types>
+	<types>
+		<members>BuggyPage</members>
+		<name>ApexPage</name>
+	</types>
+	<types>
+		<members>OccurrenceTrigger</members>
+		<name>ApexTrigger</name>
+	</types>
+	<version>34.0</version>
 </Package>

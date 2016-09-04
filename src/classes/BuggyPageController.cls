@@ -38,6 +38,24 @@ public with sharing class BuggyPageController {
         new ExceptionEmailService().parseEmail(FAKE_INDEX_ERROR);
     }
 
+    public void throwRealNullPointer() {
+        String s = null;
+        s.capitalize();
+    }
+
+    public void throwRealCalloutException() {
+        Http h = new Http();
+        h.send(new HttpRequest());
+    }
+
+    public void throwRealIndexError() {
+        List<Integer> integers = new List<Integer> {
+            0,
+            1,
+            2
+        };
+        Integer noooope = integers[3];
+    }
 
     public void throwFakeException() {
         //Messaging.reserveSingleEmailCapacity(1);

@@ -9,7 +9,12 @@ global class ExceptionEmailService implements Messaging.InboundEmailHandler {
         Messaging.InboundEnvelope env) {
 
         Messaging.InboundEmailResult result = new Messaging.InboundEmailResult();
-        result.success = parseEmail(email.plainTextBody);
+
+        try {
+            result.success = parseEmail(email.plainTextBody);
+        } catch (Exception e) {
+            System.debug(e.getMessage() + '\n' + e.getStackTraceString());
+        }
 
         return result;
     }

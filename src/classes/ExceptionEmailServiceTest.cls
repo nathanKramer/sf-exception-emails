@@ -73,4 +73,22 @@ Class.BanjoIntegrationServiceV2.somethingSomethingBananaphone: line 28, column 1
         ExceptionEmail email = ExceptionEmail.parseEmail(EXAMPLE_EXCEPTION_EMAIL);
         System.assert(email.isSandbox);
     }
+
+    @IsTest
+    static void visualForcePageError() {
+        String vfPageError = 'Apex script unhandled exception by user/organization: 00528000004c4wN/00D28000001i6R3\n\n' +
+        'Visualforce Page: /apex/BuggyPage\n\n\n' +
+        'caused by: System.CalloutException: Endpoint can not be null\n\n\n' +
+        'Class.BuggyPageController.throwRealCalloutException: line 48, column 1';
+
+        ExceptionEmail email = ExceptionEmail.parseEmail(vfPageError);
+        System.assertEquals(false, email.isSandbox);
+        System.assertEquals('00528000004c4wN', email.userId);
+        System.assertEquals('00D28000001i6R3', email.organizationId);
+        System.assertEquals('00D28000001i6R3', email.organizationId);
+        System.assertEquals('Visualforce Page: /apex/BuggyPage', email.message);
+        System.assertEquals('System.CalloutException: Endpoint can not be null', email.cause);
+        System.assertEquals('Class.BuggyPageController.throwRealCalloutException: line 48, column 1', email.stacktrace);
+    }
+
 }

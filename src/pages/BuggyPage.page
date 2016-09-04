@@ -12,10 +12,15 @@
       <p>
         Nunc ut luctus elit. Cras vel lectus sodales, venenatis quam id, tempor arcu. Nunc sed turpis et leo placerat molestie. Maecenas et convallis massa, vel imperdiet arcu. Donec at eros et enim aliquam rutrum vitae in purus. Integer at ante ultricies, pellentesque est ac, tristique mi. Pellentesque dignissim elit nec fermentum lacinia. Vestibulum fermentum ligula et nisi fermentum placerat. Quisque rutrum pellentesque urna, ut ullamcorper felis varius nec. Sed egestas interdum turpis, non varius ante cursus ac. Fusce tincidunt mi eros, in placerat nisi lobortis id. Vestibulum mi metus, imperdiet quis dictum vitae, tempor a nisl. Suspendisse tristique nec ex id pellentesque. Sed tincidunt ante in dolor tempor consequat. Integer commodo lectus sit amet lobortis tempor.
       </p>
-      <apex:pageBlockButtons>
+      <apex:pageBlockButtons location="top">
         <apex:commandButton value="Fake Nullpointer" action="{!throwFakeNullpointer}" />
         <apex:commandButton value="Fake Callout Exception" action="{!throwFakeCalloutException}" />
         <apex:commandButton value="Fake List Index Error" action="{!throwFakeListIndexError}" />
+      </apex:pageBlockButtons>
+      <apex:pageBlockButtons location="bottom">
+        <apex:commandButton value="Real Nullpointer" action="{!throwRealNullPointer}" />
+        <apex:commandButton value="Real Callout Exception" action="{!throwRealCalloutException}" />
+        <apex:commandButton value="Real List Index Error" action="{!throwRealIndexError}" />
       </apex:pageBlockButtons>
     </apex:pageBlock>
   </apex:form>

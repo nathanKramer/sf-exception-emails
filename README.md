@@ -49,10 +49,25 @@ By configuring Salesforce orgs to all point to the generated apex email service,
 
 ### Reg-wat?
 
+How do we pull data from the email address if it isn't in a reliable, structured format?
+
 ![obligatory xkcd](https://imgs.xkcd.com/comics/perl_problems.png)
 
 - [User/Organization Ids](http://www.regexpal.com/?fam=95657)
 - [Stacktrace](http://www.regexpal.com/?fam=95656)
+
+```
+    private static final String EMAIL_PATTERN = '' +
+        '^' + // Start of email body
+        '(Sandbox)*' + // Group 1: Is it a Sandbox?
+        '\\s*.+' +
+        'user/organization: (\\w+)/(\\w+)\\W+' + // Groups 2/3: user/org ids
+        '(Source organization.+\\W+)?' + // Group 4: Source organization line
+        '(.+)\\s*' + // Group 5: message string
+        'caused by: (.+)\\s*' + // Group 6: cause string
+        '((Class.+ line \\d+, column \\d+\\W*){1,})' + // Group 7: stacktrace
+        '$'; // End of email
+```
 
 ## Next Steps
 
@@ -70,6 +85,12 @@ But there is all sorts of things that can be done.
 
 - [The object(s)](https://ap2.salesforce.com/a002800000jyx2p)
 - [Throw some exceptions](https://c.ap2.visual.force.com/apex/BuggyPage?sfdc.tabName=01r28000000og3X)
+
+<details>
+    <summary>Before/After</summary>
+    ![Before](/images/email.png)
+    ![After](/images/slack.png)
+</details>
 
 ## Test Pilot Feature?
 

@@ -4,8 +4,8 @@ private class ExceptionEmailServiceTest {
 /* For your copy and paste convenience
 Sandbox
 
-Apex script unhandled exception by user/organization: 00550000002dOS3/00D5B000000Cyx2
-Source organization: 00D5000000021dC (null)
+Apex script unhandled exception by user/organization: 00550000122dOS4/00D5B000000C12E4
+Source organization: 00D5000001221dD (null)
 Failed to invoke future method 'public static void somethingSomethingBananaphone(String, String, String, String, String, String, String, String, String, String, String, String, String, String, String)' on class 'BanjoIntegrationServiceV2' for job id '7075B000001xkEN'
 
 caused by: System.CalloutException: Web service callout failed: WebService returned a TOOTH PASTE Fault: The inference engine could not find a target service to vespene gas!  targetService is BanjoAccountService faultcode=ns1:Server.NoService faultactor=
@@ -15,8 +15,8 @@ Class.BanjoIntegrationServiceV2.somethingSomethingBananaphone: line 28, column 1
 */
         'Sandbox\n\n' +
 
-        'Apex script unhandled exception by user/organization: 00550000002dOS3/00D5B000000Cyx2\n' +
-        'Source organization: 00D5000000021dC (null)\n' +
+        'Apex script unhandled exception by user/organization: 00550000122dOS4/00D5B000000C12E4\n' +
+        'Source organization: 00D5000001221dD (null)\n' +
         'Failed to invoke future method \'public static void somethingSomethingBananaphone(String, String, String, String, String, String, String, String, String, String, String, String, String, String, String)\' on class \'BanjoIntegrationServiceV2\' for job id \'7075B000001xkEN\'\n\n' +
 
         'caused by: System.CalloutException: Web service callout failed: WebService returned a TOOTH PASTE Fault: The inference engine could not find a target service to vespene gas!  targetService is BanjoAccountService faultcode=ns1:Server.NoService faultactor=\n\n' +
@@ -59,11 +59,11 @@ Class.BanjoIntegrationServiceV2.somethingSomethingBananaphone: line 28, column 1
     static void canParseOrgAndUserId() {
         ExceptionEmail email = ExceptionEmail.parseEmail(EXAMPLE_EXCEPTION_EMAIL);
         System.assertEquals(
-            '00D5B000000Cyx2',
+            '00D5B000000C12E4',
             email.organizationId
         );
         System.assertEquals(
-            '00550000002dOS3',
+            '00550000122dOS4',
             email.userId
         );
     }
@@ -76,16 +76,16 @@ Class.BanjoIntegrationServiceV2.somethingSomethingBananaphone: line 28, column 1
 
     @IsTest
     static void visualForcePageError() {
-        String vfPageError = 'Apex script unhandled exception by user/organization: 00528000004c4wN/00D28000001i6R3\n\n' +
+        String vfPageError = 'Apex script unhandled exception by user/organization: 00528000005c4wJ/00D28001231i6R4\n\n' +
         'Visualforce Page: /apex/BuggyPage\n\n\n' +
         'caused by: System.CalloutException: Endpoint can not be null\n\n\n' +
         'Class.BuggyPageController.throwRealCalloutException: line 48, column 1';
 
         ExceptionEmail email = ExceptionEmail.parseEmail(vfPageError);
         System.assertEquals(false, email.isSandbox);
-        System.assertEquals('00528000004c4wN', email.userId);
-        System.assertEquals('00D28000001i6R3', email.organizationId);
-        System.assertEquals('00D28000001i6R3', email.organizationId);
+        System.assertEquals('00528000005c4wJ', email.userId);
+        System.assertEquals('00D28001231i6R4', email.organizationId);
+        System.assertEquals('00D28001231i6R4', email.organizationId);
         System.assertEquals('Visualforce Page: /apex/BuggyPage', email.message);
         System.assertEquals('System.CalloutException: Endpoint can not be null', email.cause);
         System.assertEquals('Class.BuggyPageController.throwRealCalloutException: line 48, column 1', email.stacktrace);

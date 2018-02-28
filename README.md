@@ -1,4 +1,4 @@
-# Using Apex Email Services _and_ Apex Exception emails together
+# Using Apex Email Services and Apex Exception emails together
 
 
 An example use case of Apex email services, and Apex exception emails
@@ -12,7 +12,7 @@ Email services allow you to generate email addresses which are linked to an apex
 
 A generated email looks something like this:
 
-exceptionlogger@33n9zo4kx670anv2qjs2dm7fcr69cswa2ql27qomdsm0hgsger.28-1i6r3eai.ap2.apex.salesforce.com
+exceptionlogger@33n9zo4kx670anv4qjs2dm7fcr69cswb2qj27qomdsm0hgsger.22-1i6r4eai.ap2.apex.salesforce.com
 
 ## Email Administration -> Apex [Exception Email](https://ap2.salesforce.com/apexpages/setup/apexExceptionEmail.apexp?retURL=%2Fui%2Fsetup%2FSetup%3Fsetupid%3DEmailAdmin&setupid=ApexExceptionEmail)
 
@@ -25,8 +25,8 @@ Here is an example exception email (modified)
 ```
 Sandbox
 
-Apex script unhandled exception by user/organization: 00550000002dOS3/00D28000001i6R3
-Source organization: 00D5000000021dC (null)
+Apex script unhandled exception by user/organization: 00520000102dO43/00D28010001i6R3
+Source organization: 00520000102dO43 (null)
 Failed to invoke future method 'public static void somethingSomethingBananaphone(String, String, String, String, String, String, String, String, String, String, String, String, String, String, String)' on class 'BanjoIntegrationServiceV2' for job id '7075B000001xkEN'
 
 caused by: System.CalloutException: Web service callout failed: WebService returned a TOOTH PASTE Fault: The inference engine could not find a target service to vespene gas!  targetService is BanjoAccountService faultcode=ns1:Server.NoService faultactor=
@@ -43,9 +43,11 @@ Class.BanjoIntegrationServiceV2.somethingSomethingBananaphone: line 28, column 1
 
 ## Putting them together
 
-We can combine these two features.
+We can combine these two features to do some cool error notifications.
 
-By configuring Salesforce orgs to all point to the generated apex email service, we can begin to build up a more holistic picture of the exceptions and where they come from.
+For this example, assume you are a Salesforce partner or ISV. You have many clients, and you configure their Salesforce orgs, or at the least you have some custom apex running in their Salesforce orgs.
+
+By configuring the apex exception email address of these Salesforce orgs to all point to your apex email service, we can begin to build up a more holistic picture of exception occurrences, where they come from, and who is affected.
 
 ### Reg-wat?
 
@@ -79,32 +81,5 @@ But there is all sorts of things that can be done.
 - Calculate the mean frequency of a given exception, to get an idea of when it will next occur
 - Store context / Domain Knowledge Expert info / "T Shirt" fixing size on the exception itself
 - Empower the Salesforce team to respond to production bugs before the phone call comes in from the customer
-- Slack Integration?
 
-## [Show the people]
-
-- [The object(s)](https://ap2.salesforce.com/a002800000jyx2p)
-- [Throw some exceptions](https://c.ap2.visual.force.com/apex/BuggyPage?sfdc.tabName=01r28000000og3X)
-
-<details>
-    <summary>Before/After</summary>
-    ![Before](/images/email.png)
-    ![After](/images/slack.png)
-</details>
-
-## Test Pilot Feature?
-
-In my view all of the above sounds like test pilot territory - especially given that we can _set the apex exception email over the tooling API_.
-
-In other words, this feature could be as simple to turn on as a checkbox that says "track exceptions" - test pilot could conceivably make a tooling API call if it is checked.
-
-
-## Any Questions?
-
-<details> 
-  <summary>Thanks</summary>
-
-   Exception Cop would like to thank everyone for listening
-
-   ![Exception Cop](http://imgc.allpostersimages.com/images/P-488-488-90/88/8815/7GXO300Z/posters/wwe-john-cena-light-blue-shirt-lifesize-standup.jpg)
-</details>
+![After](https://github.com/nathanKramer/sf-exception-emails/blob/master/images/slack.png)
